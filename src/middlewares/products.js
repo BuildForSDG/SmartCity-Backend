@@ -4,8 +4,8 @@ const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
 const GridFsStorage = require('multer-gridfs-storage');
-const config = require('../config/keys');
-var mongoose = require('mongoose');
+const config = require('../config/keys')
+var mongoose = require('mongoose')
 var mongodb = require('mongodb');
 
 exports.getAllProducts = function (req, res, next) {
