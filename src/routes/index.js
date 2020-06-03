@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log('some shiity test, some more')
- res.render('index', { title: 'SmartCity' });
-
+router.get('/', (req, res) => {
+  console.log('some shiity test, some more');
+  res.render('index', { title: 'SmartCity' });
 });
 
 module.exports = router;

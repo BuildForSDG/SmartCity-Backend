@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const artisanSchema = mongoose.Schema({
   _id: String,
   name: {
     type: String,
@@ -10,17 +10,8 @@ const productSchema = mongoose.Schema({
     type: String,
     trim: true
   },
-  price: {
-    type: Number,
-    maxlength: 6
-  },
-  discounted_price: {
-    type: Number,
-    maxlength: 6
-  },
   filename: String,
-  category_id: String,
-  seller_id: String,
+  field_id: String,
   location: String,
   reviews: [
     {
@@ -33,18 +24,17 @@ const productSchema = mongoose.Schema({
   datePosted: { type: Date, default: Date.now }
 });
 
-productSchema.methods.findAll = (limit, cb) => {
-  this.model('products')
+artisanSchema.methods.findAll = (limit, cb) => {
+  this.model('artisans')
     .find()
     .limit(parseFloat(limit))
     .sort('-datePosted')
-    .select('name price _id description discounted_price filename datePosted location reviews')
     .exec((err, docs) => {
       if (err) return cb(err);
       return cb(null, docs);
     });
 };
 
-const Product = mongoose.model('products', productSchema);
+const Artisan = mongoose.model('artisans', artisanSchema);
 
-module.exports = Product;
+module.exports = Artisan;
