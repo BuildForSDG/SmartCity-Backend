@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
   res.send('respond with a resource');
 });
 router.get('/single', (req, res) => {
-  console.log(req.baseUrl);
   res.send('single dude here');
 });
 

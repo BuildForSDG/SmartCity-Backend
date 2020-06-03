@@ -141,7 +141,6 @@ exports.upload = multer({ storage });
 exports.getArtisanImage = (req, res) => {
   mongodb.MongoClient.connect(config.mongoURI, (error, client) => {
     if (error) res.status(400).send(error);
-    console.log(client.db);
     const bucket = new mongodb.GridFSBucket(client.db(), {
       chunkSizeBytes: 1024,
       bucketName: 'artisanUploads'

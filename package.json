@@ -2,10 +2,7 @@
   "name": "smartcity-backend",
   "version": "0.0.1",
   "description": "Backend repository for SmartCity by BuildForSDG/team-241",
-  "keywords": [
-    "Smartcity",
-    "Team-241"
-  ],
+  "keywords": ["Smartcity", "Team-241"],
   "private": false,
   "main": "src/bin/www",
   "directories": {

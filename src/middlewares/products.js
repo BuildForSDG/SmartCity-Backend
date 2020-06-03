@@ -104,7 +104,6 @@ exports.postReview = (req, res) => {
 };
 
 exports.saveProduct = (req, res) => {
-  console.log(req.file);
   const product = new Product({
     _id: req.file.id,
     filename: req.file.filename,
@@ -162,7 +161,6 @@ exports.upload = multer({ storage });
 exports.getProductImage = (req, res) => {
   mongodb.MongoClient.connect(config.mongoURI, (error, client) => {
     if (error) res.status(400).send(error);
-    console.log(client.db);
     const bucket = new mongodb.GridFSBucket(client.db(), {
       chunkSizeBytes: 1024,
       bucketName: 'productUploads'
@@ -182,7 +180,6 @@ exports.getProductImage = (req, res) => {
             })
             .on('finish', () => {
               client.close(() => {
-                console.log('done!');
                 res.end();
               });
             });
