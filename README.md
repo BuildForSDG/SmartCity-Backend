@@ -11,8 +11,8 @@ Once this repo has been setup on Codacy by the TTL, replace the above badge with
 
 This is a simple JavaScript starter repo template for setting up your project. The setup contains
 
-* Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
-* Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
+*  Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
+*  Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
 
 ## Why
 
@@ -36,8 +36,8 @@ This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bun
 
 ### Hints
 
-* Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
-* Install additional dependencies: `yarn add <dependency-name> [-D]`
+*  Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
+*  Install additional dependencies: `yarn add <dependency-name> [-D]`
 * Run tests: `yarn test`
 * Run tests with test coverage info: `yarn test:cover`
 * Check the codebase for proper syntax and formatting compliance: `yarn lint`
