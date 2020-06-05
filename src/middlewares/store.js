@@ -18,14 +18,6 @@ function cb(res) {
   };
 }
 
-/* exports.getAllArtisans = (req, res) => {
-  const { limit } = req.query;
-  Artisan.find()
-    .limit(parseFloat(limit))
-    .sort('-datePosted')
-    .exec(cb(res));
-}; */
-
 exports.getAll = (model) => (req, res) => {
   const { limit } = req.query;
   model.find().limit(parseFloat(limit)).sort('-datePosted').exec(cb(res));
@@ -105,7 +97,6 @@ exports.removeReview = (model) => (req, res) => {
 };
 
 exports.save = (Model) => (req, res) => {
-  console.log(req.file);
   const doc = new Model({
     _id: req.file.id,
     filename: req.file.filename,
@@ -154,7 +145,6 @@ exports.getImage = (bn, col) => (req, res) => {
           res.status(400).send(er);
         })
         .on('finish', () => {
-          console.log('done!');
           res.end();
         });
     });
