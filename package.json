@@ -1,36 +1,36 @@
 {
   "name": "smartcity-backend",
   "version": "0.0.1",
+  "private": false,
   "description": "Backend repository for SmartCity by BuildForSDG/team-241",
   "keywords": [
     "Smartcity",
     "Team-241"
   ],
-  "private": false,
+  "homepage": "https://github.com/BuildForSDG/SmartCity-Backend#readme",
+  "bugs": {
+    "url": "https://github.com/BuildForSDG/SmartCity-Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BuildForSDG/SmartCity-Backend.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Build For SDG/team-241",
+    "email": "buildforsdg@andela.com"
+  },
   "main": "src/bin/www",
   "directories": {
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.js\"",
-    "start": "nodemon .src/bin/www"
+    "start": "nodemon .src/bin/www",
+    "test": "jest",
+    "test:cover": "jest --coverage",
+    "test:watch": "jest --watch"
   },
-  "author": {
-    "name": "Build For SDG/team-241",
-    "email": "buildforsdg@andela.com"
-  },
-  "homepage": "https://github.com/BuildForSDG/SmartCity-Backend#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BuildForSDG/SmartCity-Backend.git"
-  },
-  "bugs": {
-    "url": "https://github.com/BuildForSDG/SmartCity-Backend/issues"
-  },
-  "license": "MIT",
   "dependencies": {
     "bcrypt": "^4.0.1",
     "cookie-parser": "~1.4.4",
