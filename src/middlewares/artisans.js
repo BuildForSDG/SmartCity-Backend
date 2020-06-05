@@ -9,11 +9,10 @@ const Artisan = require('../models/Artisan');
 const config = require('../config/keys');
 
 const db = mongoose.connection;
-const getBucket = (name) =>
-  new mongodb.GridFSBucket(db.db, {
-    chunkSizeBytes: 1024,
-    bucketName: name
-  });
+const getBucket = (name) => new mongodb.GridFSBucket(db.db, {
+  chunkSizeBytes: 1024,
+  bucketName: name
+});
 
 exports.getAllArtisans = (req, res) => {
   const { limit } = req.query;
@@ -112,7 +111,9 @@ exports.saveArtisan = (req, res) => {
 };
 
 const validate = (req) => {
-  const { name, description, fieldId, location } = req.body;
+  const {
+    name, description, fieldId, location
+  } = req.body;
 
   return !!name && !!description && !!fieldId && !!location;
 };
