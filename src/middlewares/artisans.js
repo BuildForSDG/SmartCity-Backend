@@ -8,13 +8,22 @@ const createError = require('http-errors');
 const Artisan = require('../models/Artisan');
 const config = require('../config/keys');
 
+const db = mongoose.connection;
+const getBucket = (name) =>
+  new mongodb.GridFSBucket(db.db, {
+    chunkSizeBytes: 1024,
+    bucketName: name
+  });
+
 exports.getAllArtisans = (req, res) => {
   const { limit } = req.query;
-  const artisan = new Artisan();
-  artisan.findAll(limit, (err, docs) => {
-    if (err) return res.status(400).send(err);
-    return res.status(200).json(docs);
-  });
+  Artisan.find()
+    .limit(parseFloat(limit))
+    .sort('-datePosted')
+    .exec((err, docs) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).json(docs);
+    });
 };
 
 exports.soughtByLocation = (req, res) => {
@@ -35,7 +44,7 @@ exports.soughtByField = (req, res) => {
   const { fieldId } = req.params;
   Artisan.find()
     .limit(parseFloat(limit))
-    .where('field_id')
+    .where('fieldId')
     .equals(fieldId)
     .sort('-datePosted')
     .exec((err, docs) => {
@@ -50,7 +59,7 @@ exports.soughtByFieldAndLocation = (req, res) => {
     .limit(parseFloat(limit))
     .where('location')
     .equals(location)
-    .where('field_id')
+    .where('fieldId')
     .equals(fieldId)
     .sort('-datePosted')
     .exec((err, docs) => {
@@ -103,9 +112,7 @@ exports.saveArtisan = (req, res) => {
 };
 
 const validate = (req) => {
-  const {
-    name, description, fieldId, location
-  } = req.body;
+  const { name, description, fieldId, location } = req.body;
 
   return !!name && !!description && !!fieldId && !!location;
 };
@@ -139,67 +146,49 @@ const storage = new GridFsStorage({
 exports.upload = multer({ storage });
 
 exports.getArtisanImage = (req, res) => {
-  mongodb.MongoClient.connect(config.mongoURI, (error, client) => {
-    if (error) res.status(400).send(error);
-    const bucket = new mongodb.GridFSBucket(client.db(), {
-      chunkSizeBytes: 1024,
-      bucketName: 'artisanUploads'
-    });
-    client
-      .db()
-      .collection('artisanUploads.files')
-      .find({ filename: req.params.filename }, (err, file) => {
-        file.toArray((errors, docs) => {
-          if (!docs.length) res.status(400).send('No such file exists');
-          bucket
-            .openDownloadStreamByName(req.params.filename)
-            .pipe(res)
-            .on('error', (er) => {
-              res.status(400).send(er);
-            })
-            .on('finish', () => {
-              client.close(() => {
-                console.log('done!');
-                res.end();
-              });
-            });
+  /* mongodb.MongoClient.connect(config.mongoURI, (error, client) => {
+    if (error) res.status(400).send(error); */
+  const bucket = getBucket('artisanUploads');
+  db.collection('artisanUploads.files').find({ filename: req.params.filename }, (err, file) => {
+    file.toArray((errors, docs) => {
+      if (!docs.length) return res.status(400).send('No such file exists');
+      return bucket
+        .openDownloadStreamByName(req.params.filename)
+        .pipe(res)
+        .on('error', (er) => {
+          res.status(400).send(er);
+        })
+        .on('finish', () => {
+          console.log('done!');
+          res.end();
         });
-      });
+    });
   });
 };
 
 exports.deleteArtisanFile = (req, res, next) => {
-  mongodb.MongoClient.connect(config.mongoURI, (error, client) => {
-    if (error) res.status(400).send(error);
-    const bucket = new mongodb.GridFSBucket(client.db(), {
-      chunkSizeBytes: 1024,
-      bucketName: 'artisanUploads'
-    });
-    const validId = mongoose.Types.ObjectId.isValid(req.params.artisan_id);
-    if (!validId) res.status(400).send('Invalid ObjectId');
-    const id = mongoose.Types.ObjectId(req.params.artisan_id);
-    client
-      .db()
-      .collection('artisanUploads.files')
-      .find({ _id: id }, (errors, file) => {
-        file.toArray((err, docs) => {
-          if (!docs.length) res.status(400).send('No such file exists');
-          bucket.delete(id, (er) => {
-            client.close(() => {
-              if (er) res.send(er);
-              next();
-            });
-          });
-        });
-      });
+  const bucket = getBucket('artisanUploads');
+  const id = mongoose.Types.ObjectId(req.params.artisanId);
+  /* const validId = mongoose.Types.ObjectId.isValid(req.params.artisanId);
+  if (!validId) return res.status(400).send('Invalid ObjectId');
+  const id = mongoose.Types.ObjectId(req.params.artisanId);
+  return db.collection('artisanUploads.files').find({ _id: id }, (errors, file) => {
+    file.toArray((err, docs) => {
+      if (!docs.length) res.status(400).send('No such file exists') */
+  bucket.delete(id, (er) => {
+    if (er) res.status(400).json({ ...er, message: 'No such file exists' });
+    next();
   });
+  // });
+  // });
 };
 
 exports.deleteArtisanDoc = (req, res) => {
   const id = req.params.artisanId;
   Artisan.findByIdAndDelete(id)
     .then((doc) => {
-      res.status(200).json({ ...doc, deleted: true });
+      const { _doc } = doc;
+      res.status(200).json({ ..._doc, deleted: true });
     })
     .catch((err) => {
       res.status(500).send(err);

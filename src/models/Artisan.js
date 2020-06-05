@@ -11,7 +11,7 @@ const artisanSchema = mongoose.Schema({
     trim: true
   },
   filename: String,
-  field_id: String,
+  fieldId: String,
   location: String,
   reviews: [
     {
@@ -23,17 +23,6 @@ const artisanSchema = mongoose.Schema({
   ],
   datePosted: { type: Date, default: Date.now }
 });
-
-artisanSchema.methods.findAll = (limit, cb) => {
-  this.model('artisans')
-    .find()
-    .limit(parseFloat(limit))
-    .sort('-datePosted')
-    .exec((err, docs) => {
-      if (err) return cb(err);
-      return cb(null, docs);
-    });
-};
 
 const Artisan = mongoose.model('artisans', artisanSchema);
 
