@@ -1,30 +1,44 @@
 const express = require('express');
+const multer = require('multer');
+const Artisan = require('../models/Artisan');
 const {
-  getAllArtisans,
-  saveArtisan,
+  getAll,
+  save,
   soughtByLocation,
-  soughtByField,
-  soughtByFieldAndLocation,
-  getSingleArtisan,
-  getArtisanReview,
+  soughtByCategory,
+  soughtByCategoryAndLocation,
+  getSingle,
+  getAllReview,
   postReview,
-  upload,
-  getArtisanImage,
-  deleteArtisanFile,
-  deleteArtisanDoc
-} = require('../middlewares/artisans');
+  storage,
+  getImage,
+  deleteFile,
+  deleteDoc,
+  getReview,
+  removeReview
+} = require('../middlewares/store');
 
 const router = express.Router();
+const validate = (req) => {
+  const {
+    name, description, categoryId, location
+  } = req.body;
 
-router.get('/', getAllArtisans);
-router.get('/inLocation/:location', soughtByLocation);
-router.get('/inField/:fieldId', soughtByField);
-router.get('/inField/:fieldId/inLocation/:location', soughtByFieldAndLocation);
-router.get('/:artisanId', getSingleArtisan);
-router.get('/:artisanId/reviews', getArtisanReview);
-router.post('/', upload.single('thumbnail'), saveArtisan);
-router.post('/:artisanId/reviews', postReview);
-router.get('/images/:filename', getArtisanImage);
-router.delete('/:artisanId', deleteArtisanFile, deleteArtisanDoc);
+  return !!name && !!description && !!categoryId && !!location;
+};
+const upload = multer({ storage: storage(Artisan, 'artisanUploads', validate) });
+
+router.get('/', getAll(Artisan));
+router.get('/inLocation/:location', soughtByLocation(Artisan));
+router.get('/inCategory/:id', soughtByCategory(Artisan));
+router.get('/inCategory/:id/inLocation/:location', soughtByCategoryAndLocation(Artisan));
+router.get('/:id', getSingle(Artisan));
+router.get('/:id/reviews', getAllReview(Artisan));
+router.post('/', upload.single('thumbnail'), save(Artisan));
+router.post('/:id/reviews', postReview(Artisan));
+router.get('/images/:filename', getImage('artisanUploads', 'artisanUploads.files'));
+router.delete('/:id', deleteFile('artisanUploads'), deleteDoc(Artisan));
+router.delete('/:dId/reviews/:rId', removeReview(Artisan));
+router.get('/:dId/reviews/:rId', getReview(Artisan));
 
 module.exports = router;

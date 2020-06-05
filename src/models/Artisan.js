@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+const reviewsSchema = mongoose.Schema(
+  {
+    writer: String,
+    body: String,
+    date: { type: Date, default: Date.now },
+    rating: Number
+  }
+);
 const artisanSchema = mongoose.Schema({
   _id: String,
   name: {
@@ -11,15 +19,10 @@ const artisanSchema = mongoose.Schema({
     trim: true
   },
   filename: String,
-  fieldId: String,
+  categoryId: String,
   location: String,
   reviews: [
-    {
-      writer: String,
-      body: String,
-      date: { type: Date, default: Date.now },
-      rating: Number
-    }
+    reviewsSchema
   ],
   datePosted: { type: Date, default: Date.now }
 });
