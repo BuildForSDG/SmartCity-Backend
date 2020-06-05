@@ -5,7 +5,7 @@
 
 ## About
 
-### This is the backend API of SmartCity, a product by BuildForSDG/team-241.
+### This is the backend API of SmartCity, a product by BuildForSDG/team-241
 
 SmartCity is a project that seeks to develop a flexible online marketplace, where business people can list their products and gain get patronage from a large community of online users.
 
@@ -17,7 +17,6 @@ Our product delivery is centered on two major categories:
 > The FreshMart for fresh foods/ perishables.
 
 > The Artisans for all forms of vocational skills, ranging from manual labours to top tech skill sets.
-
 
 If you car is broken for instance, you should be able to search the app for mechanics in close proximity and place order for urgent/ emergency service.
 Likewise, one can search for fruit vendors in close range and order for home/ office delivery.
@@ -60,7 +59,6 @@ To achieve that, corresponding route paths have been build to serve the followin
 > *DELETE /products/id* -Delete a product whose id = id
 
 > *DELETE /products/dId/reviews/rId* -Search for a product of id = dId, and from its reviews delete the single review with id = rId
-
 
 ### URLs for Artisans
 > *GET /artisans?limit=n*  -Get n-number of services from all services
