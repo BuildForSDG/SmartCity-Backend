@@ -14,13 +14,13 @@ const productSchema = mongoose.Schema({
     type: Number,
     maxlength: 6
   },
-  discounted_price: {
+  discountedPrice: {
     type: Number,
     maxlength: 6
   },
   filename: String,
-  category_id: String,
-  seller_id: String,
+  categoryId: String,
+  sellerId: String,
   location: String,
   reviews: [
     {
@@ -32,18 +32,6 @@ const productSchema = mongoose.Schema({
   ],
   datePosted: { type: Date, default: Date.now }
 });
-
-productSchema.methods.findAll = (limit, cb) => {
-  this.model('products')
-    .find()
-    .limit(parseFloat(limit))
-    .sort('-datePosted')
-    .select('name price _id description discounted_price filename datePosted location reviews')
-    .exec((err, docs) => {
-      if (err) return cb(err);
-      return cb(null, docs);
-    });
-};
 
 const Product = mongoose.model('products', productSchema);
 
