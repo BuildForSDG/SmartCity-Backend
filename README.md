@@ -1,49 +1,95 @@
-barebones setup for JavaScript / Node projects replace this with a one-liner phrase describing this project or app
+## BuildForSDG/smartCity-backend (A product of team-241)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7a256fa992df4f3b9b5ba21629249010)](https://app.codacy.com/gh/BuildForSDG/SmartCity-Backend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/SmartCity-Backend&utm_campaign=Badge_Grade_Dashboard)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7a256fa992df4f3b9b5ba21629249010)](https://app.codacy.com/gh/BuildForSDG/SmartCity-Backend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/SmartCity-Backend&utm_campaign=Badge_Grade_Dashboard)
 
 ## About
 
-What is this project about. Ok to enrich here or the section above it with an image.
+### This is the backend API of SmartCity, a product by BuildForSDG/team-241.
 
-Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
+SmartCity is a project that seeks to develop a flexible online marketplace, where business people can list their products and gain get patronage from a large community of online users.
 
-This is a simple JavaScript starter repo template for setting up your project. The setup contains
+The project basically seeks to give online presence to business that arealways offline.
 
-> Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
-> Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
+We have narrowed our focus to freshfoods/perishables and and vocational skills.
+
+Our product delivery is centered on two major categories:
+> The FreshMart for fresh foods/ perishables.
+
+> The Artisans for all forms of vocational skills, ranging from manual labours to top tech skill sets.
+
+
+If you car is broken for instance, you should be able to search the app for mechanics in close proximity and place order for urgent/ emergency service.
+Likewise, one can search for fruit vendors in close range and order for home/ office delivery.
 
 ## Why
 
-Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
+We envisage a smart economy, where everyone irrespective of their businesses should be able to access digital infrastructure, and market their products/ services.
+A buyer should be able to order for whatever goods/ services he needs right at the comfort of his home/ office. 
 
 ## Usage
 
-How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+This API is meant to serve the client/ frontend.
+To achieve that, corresponding route paths have been build to serve the following request URLs:
 
-## Setup
+### URLs for FreshMart
+> *GET /products?limit=n*  -Get n-number of products from all products
 
-Install `npm` or `yarn` if you dont have any of them already installed. We recommend Yarn though.
+> *GET /products/id* -Get the single product with id = id
 
-After clonning the repo to your local machine and moving into the cloned folder, Run `yarn install` to get started by installing dependencies.
+> *GET /products/inLocation/location?limit=n* -Get n products from a given location
 
-`src/index.js` is the entry to the project and source code should go into the `src` folder.
+> *GET /products/inCategory/id?limit=n* -Get n products in the category whose id = id
 
-All tests should be written in the `**tests**' folder. There's a sample in there.
+> *GET /products/inCategory/id/inLocation/location* -Get all products in a particular category, and from a given location.
 
-This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bundler. It is much simpler that WebPack and the others
+> *GET /products/id/reviews* -Get all reviews for a particular product whose id = id
 
-### Hints
+> *GET /products/images/filename* -Get a particular product image with the given filename
 
-> Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
-> Install additional dependencies: `yarn add <dependency-name> [-D]`
-> Run tests: `yarn test`
-> Run tests with test coverage info: `yarn test:cover`
-> Check the codebase for proper syntax and formatting compliance: `yarn lint`
-> Run your app in local dev mode: `yarn start`. This puts the bundled app in a `dist` folder, set up a local web server at localhost:1234, and continues to watch for your code changes which it syncs with the local server. This means if you loaded the app in a browser, it will auto-refresh as you code along. Feel free to use whatever bundler best meets your needs. Parcel was only added as a sample and for those looking for a simple but effective solution to the hassle of bundlers.
+> *GET /products/dId/reviews/rId* -Search for theproduct whose id = dId, and from it's reviews get the particular review with corresponding id = rId
+
+> *GET /products/inRange/from-to?limit=n* -Get n products within the given price range
+
+> *GET /products/fromSeller/id* -Get all products posted by the seller whose id = id
+
+> *POST /products* -Upload a product
+
+> *POST /products/id/reviews* -Post a review for a product whose id = id
+
+> *DELETE /products/id* -Delete a product whose id = id
+
+> *DELETE /products/dId/reviews/rId* -Search for a product of id = dId, and from its reviews delete the single review with id = rId
+
+
+### URLs for Artisans
+> *GET /artisans?limit=n*  -Get n-number of services from all services
+
+> *GET /artisans/id* -Get the single service listing with id = id
+
+> *GET /artisans/inLocation/location?limit=n* -Get n service listings from a given location
+
+> *GET /artisans/inCategory/id?limit=n* -Get n service listings in the category whose id = id
+
+> *GET /artisans/inCategory/id/inLocation/location* -Get all service listings in a particular category, and from a given location.
+
+> *GET /artisans/id/reviews* -Get all reviews for a particular service listing whose id = id
+
+> *GET /artisans/images/filename* -Get a particular service listing image with the given filename
+
+> *GET /artisans/dId/reviews/rId* -Search for the service listing whose id = dId, and from it's reviews get the particular review with corresponding id = rId
+
+> *POST /artisans* -Post a service listing
+
+> *POST /artisans/id/reviews* -Post a review for a service listing whose id = id
+
+> *DELETE /artisans/id* -Delete a service listing whose id = id
+
+> *DELETE /artisans/dId/reviews/rId* -Search for a service listing of id = dId, and from its reviews delete the single review with id = rId
 
 ## Authors
+
+***BuildForSDG/team-241***
 
 List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
 
