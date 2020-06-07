@@ -49,9 +49,9 @@ router.post('/login', (req, res) => {
       });
     }
     return bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
-      console.log('noMatch:', err);
+      // console.log('noMatch:', err);
       if (err) return res.json({ loginSuccess: false, message: 'Wrong password' });
-      console.log('isMatch:', isMatch);
+      // console.log('isMatch:', isMatch);
 
       req.session.user = serializeUser(user);
       return res.status(200).json({
