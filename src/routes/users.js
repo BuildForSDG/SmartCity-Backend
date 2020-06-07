@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
     }
     return bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
       // console.log('noMatch:', err);
-      if (err) return res.json({ loginSuccess: false, message: 'Wrong password' });
+      if (err || !isMatch) return res.json({ loginSuccess: false, message: 'Wrong password' });
       // console.log('isMatch:', isMatch);
 
       req.session.user = serializeUser(user);
