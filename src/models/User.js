@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-
-const saltRounds = 10;
 
 const userSchema = mongoose.Schema({
-  _id: String,
+  // _id: String,
   firstname: {
     type: String,
     maxlength: 50
@@ -59,23 +56,6 @@ const userSchema = mongoose.Schema({
     default: false
   },
   filename: String
-});
-
-userSchema.pre('save', (next) => {
-  const user = this;
-
-  if (user.isModified('password')) {
-    bcrypt.genSalt(saltRounds, (error, salt) => {
-      if (error) return next(error);
-      return bcrypt.hash(user.password, salt, (err, hash) => {
-        if (err) next(err);
-        user.password = hash;
-        next();
-      });
-    });
-  } else {
-    next();
-  }
 });
 
 const User = mongoose.model('User', userSchema);

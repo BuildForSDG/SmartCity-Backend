@@ -1,9 +1,17 @@
 const express = require('express');
+const session = require('express-session');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const auth = require('../middlewares/auth');
 
+const saltRounds = 10;
 const router = express.Router();
+router.use(session({
+  secret: 'team241 smartcity',
+  resave: false,
+  saveUninitialized: false
+}));
+
 const serializeUser = (user) => {
   const { _id } = user;
   return {
@@ -28,14 +36,21 @@ router.get('/auth', auth, (req, res) => {
   res.status(200).json(req.session.user);
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => {
   const user = new User(req.body);
 
-  user.save((err, doc) => {
-    if (err) return res.json({ success: false, err });
-    return res.status(200).json({
-      success: true,
-      doc
+  bcrypt.genSalt(saltRounds, (error, salt) => {
+    if (error) return next(error);
+    return bcrypt.hash(user.password, salt, (err, hash) => {
+      if (err) next(err);
+      user.password = hash;
+      user.save((er, doc) => {
+        if (er) return res.status(400).json({ success: false, message: 'email already exists' });
+        return res.status(200).json({
+          success: true,
+          doc
+        });
+      });
     });
   });
 });
@@ -49,9 +64,7 @@ router.post('/login', (req, res) => {
       });
     }
     return bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
-      // console.log('noMatch:', err);
       if (err || !isMatch) return res.json({ loginSuccess: false, message: 'Wrong password' });
-      // console.log('isMatch:', isMatch);
 
       req.session.user = serializeUser(user);
       return res.status(200).json({

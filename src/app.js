@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const session = require('express-session');
+const dotenv = require('dotenv');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -10,8 +10,10 @@ const productsRouter = require('./routes/products');
 const categoryRouter = require('./routes/categories');
 const artisanRouter = require('./routes/artisans');
 const db = require('./config/connection');
+const mail = require('./mail/mail');
 
 const app = express();
+dotenv.config();
 db.connect();
 
 // view engine setup
@@ -25,14 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-  secret: 'team241 smartcity',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: true }
-}));
 
-// console.log(app.get('env'));
+mail('scletus40@yahoo.com', 'Cletus', 'welcome');
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
