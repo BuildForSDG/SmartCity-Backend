@@ -4,10 +4,9 @@ body {
   background-color: rgb(198, 239, 255);
 }
 
-
-.button{
+.button {
   background-color: #2692bd;
-  color:white;
+  color: white;
   padding: 10px;
   text-decoration: none;
 }
