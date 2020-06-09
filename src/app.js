@@ -10,7 +10,6 @@ const productsRouter = require('./routes/products');
 const categoryRouter = require('./routes/categories');
 const artisanRouter = require('./routes/artisans');
 const db = require('./config/connection');
-const mail = require('./mail/mail');
 
 const app = express();
 dotenv.config();
@@ -27,8 +26,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-mail('scletus40@yahoo.com', 'Cletus', 'welcome');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
