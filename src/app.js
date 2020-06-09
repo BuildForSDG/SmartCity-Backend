@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -12,7 +12,7 @@ const artisanRouter = require('./routes/artisans');
 const db = require('./config/connection');
 
 const app = express();
-dotenv.config();
+// dotenv.config();
 db.connect();
 
 // view engine setup
