@@ -34,8 +34,8 @@ module.exports = (to, name, type) => {
   const smtpTransport = mailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'scletus40@gmail.com',
-      pass: 'SUNNYDAY2010'
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
