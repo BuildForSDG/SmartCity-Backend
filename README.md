@@ -28,6 +28,7 @@ A buyer should be able to order for whatever goods/ services he needs right at t
 
 ## Usage
 
+Root URL: <https://nameless-reaches-59547.herokuapp.com>
 This API is meant to serve the client/ frontend.
 To achieve that, corresponding route paths have been build to serve the following request URLs:
 
