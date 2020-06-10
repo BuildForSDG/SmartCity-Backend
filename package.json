@@ -20,23 +20,25 @@
     "name": "Build For SDG/team-241",
     "email": "buildforsdg@andela.com"
   },
-  "main": "src/bin/www",
+  "main": "src/bin/index.js",
   "directories": {
     "test": "__tests__"
   },
   "scripts": {
     "lint": "eslint \"src/**/*.js\"",
-    "start": "nodemon .src/bin/www",
+    "start": "node src/bin/index.js",
+    "dev": "nodemon -r dotenv/config src/bin/index.js",
     "test": "jest",
     "test:cover": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
+    "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.26.0",
@@ -45,6 +47,7 @@
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.1.0",
+    "nodemailer": "^6.4.8",
     "pug": "^2.0.4"
   },
   "devDependencies": {

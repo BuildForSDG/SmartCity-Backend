@@ -7,9 +7,9 @@
 
 ### This is the backend API of SmartCity, a product by BuildForSDG/team-241
 
-SmartCity is a project that seeks to develop a flexible online marketplace, where business people can list their products and gain get patronage from a large community of online users.
+SmartCity is a project that seeks to develop a flexible online marketplace, where business people can list their products and gain/get patronage from a large community of online users.
 
-The project basically seeks to give online presence to business that arealways offline.
+The project basically seeks to give online presence to business that are always offline.
 
 We have narrowed our focus to freshfoods/perishables and and vocational skills.
 
@@ -28,6 +28,7 @@ A buyer should be able to order for whatever goods/ services he needs right at t
 
 ## Usage
 
+Root URL: <https://nameless-reaches-59547.herokuapp.com>
 This API is meant to serve the client/ frontend.
 To achieve that, corresponding route paths have been build to serve the following request URLs:
 
