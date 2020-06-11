@@ -1,113 +1,155 @@
-## BuildForSDG/smartCity-backend (A product of team-241)
+﻿## BuildForSDG/team-241 SmartCity (Frontend)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7a256fa992df4f3b9b5ba21629249010)](https://app.codacy.com/gh/BuildForSDG/SmartCity-Backend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/SmartCity-Backend&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7a256fa992df4f3b9b5ba21629249010)](https://app.codacy.com/gh/BuildForSDG/SmartCity-Backend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/SmartCity-Backend&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/13b087a11c924da1bed71c536993fe0b)](https://app.codacy.com/gh/BuildForSDG/smartCity-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/smartCity-Frontend&utm_campaign=Badge_Grade_Dashboard)
 
-## About
+## About SmartCity
 
-### This is the backend API of SmartCity, a product by BuildForSDG/team-241
+SmartCity is a project that seeks to digitize buying and hiring process in a mordern society. 
 
-SmartCity is a project that seeks to develop a flexible online marketplace, where business people can list their products and gain/get patronage from a large community of online users.
+It is developed as a web application that contains the following main contents.  
+- FreshMart.   
+- Artisans.   
+- Professionals.
 
-The project basically seeks to give online presence to business that are always offline.
+#### FreshMart
 
-We have narrowed our focus to freshfoods/perishables and and vocational skills.
+The FreshMart page is an online store where farmers, food producers, restaurants and others  upload products of the following categories, **Fruits**, **Vegetables**, **Snacks**, **Frozen foods**, **Lunch(from food vendors and restaurants)** and **Cakes**, which are readily available for sale.
 
-Our product delivery is centered on two major categories:
-> The FreshMart for fresh foods/ perishables.
+Interested buyers come to the freshmart page to shop and identify products they want, they are allowed to add products to cart, make instant orders and payment, and even make contact with the seller. The buyer's orders are delivered to the stated buyer's address in due estimated  time.
 
-> The Artisans for all forms of vocational skills, ranging from manual labours to top tech skill sets.
+#### Artisans
 
-If you car is broken for instance, you should be able to search the app for mechanics in close proximity and place order for urgent/ emergency service.
-Likewise, one can search for fruit vendors in close range and order for home/ office delivery.
+The Artisan page features various kinds of artisans in categories such as **Beauty & Makeup Artistry**, **Electrical Works**, **Hair Styling(male and female)**, **Barbing Saloons**, **Fashion**, **Event Planning & Catering (chefs inclusive)**, **Home and Office Cleaning**, **Laundry(dry cleaning)**, **Photography & Arts**, **Creative Designs(graphic designs and animations)**, **Web, Mobile & Software Artisans**, from every nook and cranny of as much localities as possible.  
+
+A user in need of one of such services can go to the artisans page, locate the workman in closest proximity  and hire the artisan for services. SmartCity also facilitate the payment process so no one gets cheated.
+
+#### Professionals
+
+This page features professionals in health, education, gymnastics, e.t.c.   
+A user comes to the page to request and negotiate for the services of available professionals.
+
+With SmartCity you can have whatever you want at your doorstep.
+
+Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
+
+This is a simple JavaScript starter repo template for setting up your project. The setup contains
+
+- Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
+
+- Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
 
 ## Why
 
-We envisage a smart economy, where everyone irrespective of their businesses should be able to access digital infrastructure, and market their products/ services.
-A buyer should be able to order for whatever goods/ services he needs right at the comfort of his home/ office. 
+SmartCity is a project focussed on promoting inclusive and sustainable industrialization with the use of technology, human, data management and institutional  to help bring our society to life.
+
+SmartCity promotes sale of farm produce and other products, businesses, and growth of other institutions. 
+It is very convenient to purchase gooods & services online and at the comfort of one's home or workplace.
+
+SmartCity saves everyone's time, reduces waste of resources, pressure and stress since you shop online and even helps saves money.  
+It also provides a means of tracking your orders.
+
+With SmartCity there will be increased efficiency and development, it also enables our society to be more connected and productive. 
 
 ## Usage
 
-This API is meant to serve the client/ frontend.
-To achieve that, corresponding route paths have been build to serve the following request URLs:
+The app has a web address such that is recognised by a web browser. A user can access the website by entering the URL of the web app, with this the home page of the app is loaded, there a user can register by clicking on "Register" or log in if user already have an account by clicking on 'sign in'.
 
-### URLs for FreshMart
-> *GET /products?limit=n*  -Get n-number of products from all products
+The register page has a form where user will have to provide some details and select the option of which account you want setup, could register as a Customer, Seller, Artisan or Professional.  
+A user can register as a  Customer and later make a request to register as another user also e.g a Professional, thereby making use of two user features on one account.
 
-> *GET /products/id* -Get the single product with id = id
+On user log in: 
 
-> *GET /products/inLocation/location?limit=n* -Get n products from a given location
+**For FreshMart**   
+A seller is able to:   
+- Upload products for sale including: name, price, description, image, discount, quantity left e.g 20 bags.   
+- View his order history/sales.   
+- Delete products.
 
-> *GET /products/inCategory/id?limit=n* -Get n products in the category whose id = id
+A buyer is able to:   
+- Search for products.
+- Add products to cart. 
+- View cart later.
+- Whishlist products.
+- Make payments on the web app through their debit/credit cards.  
 
-> *GET /products/inCategory/id/inLocation/location* -Get all products in a particular category, and from a given location.
+**For Artisans & Professionals**  
+service Providers are able to:   
+- Upload their profile including description/port folio of their services, profession and skills.   
+- Drop their contact details and address.   
 
-> *GET /products/id/reviews* -Get all reviews for a particular product whose id = id
+Customers/clients are able to: 
+- Search for services needed.
+- View profile of service providers and make contact. 
+- Make payments on the web app through their debit/credit cards.
 
-> *GET /products/images/filename* -Get a particular product image with the given filename
+*Payments are withheld until customers or clients confirm satisfaction with the quantity/quality of products or services delivered, then payment is released to the seller or service provider.*
 
-> *GET /products/dId/reviews/rId* -Search for theproduct whose id = dId, and from it's reviews get the particular review with corresponding id = rId
 
-> *GET /products/inRange/from-to?limit=n* -Get n products within the given price range
+## Setup
 
-> *GET /products/fromSeller/id* -Get all products posted by the seller whose id = id
+Install `npm` or `yarn` if you dont have any of them already installed. We recommend Yarn though.
 
-> *POST /products* -Upload a product
+After clonning the repo to your local machine and moving into the cloned folder, Run `yarn install` to get started by installing dependencies. 
 
-> *POST /products/id/reviews* -Post a review for a product whose id = id
+`src/index.js` is the entry to the project and source code should go into the `src` folder.
 
-> *DELETE /products/id* -Delete a product whose id = id
+All tests should be written in the `__tests__' folder. There's a sample in there.
 
-> *DELETE /products/dId/reviews/rId* -Search for a product of id = dId, and from its reviews delete the single review with id = rId
+This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bundler. It is much simpler that WebPack and the others
 
-### URLs for Artisans
-> *GET /artisans?limit=n*  -Get n-number of services from all services
+#### Hints
 
-> *GET /artisans/id* -Get the single service listing with id = id
-
-> *GET /artisans/inLocation/location?limit=n* -Get n service listings from a given location
-
-> *GET /artisans/inCategory/id?limit=n* -Get n service listings in the category whose id = id
-
-> *GET /artisans/inCategory/id/inLocation/location* -Get all service listings in a particular category, and from a given location.
-
-> *GET /artisans/id/reviews* -Get all reviews for a particular service listing whose id = id
-
-> *GET /artisans/images/filename* -Get a particular service listing image with the given filename
-
-> *GET /artisans/dId/reviews/rId* -Search for the service listing whose id = dId, and from it's reviews get the particular review with corresponding id = rId
-
-> *POST /artisans* -Post a service listing
-
-> *POST /artisans/id/reviews* -Post a review for a service listing whose id = id
-
-> *DELETE /artisans/id* -Delete a service listing whose id = id
-
-> *DELETE /artisans/dId/reviews/rId* -Search for a service listing of id = dId, and from its reviews delete the single review with id = rId
+- Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
+- Install additional dependencies: `yarn add <dependency-name> [-D]`
+- Run tests: `yarn test`
+- Run tests with test coverage info: `yarn test:cover`
+- Check the codebase for proper syntax and formatting compliance: `yarn lint`
+- Run your app in local dev mode: `yarn start`. This puts the bundled app in a `dist` folder, set up a local web server at localhost:1234, and continues to watch for your code changes which it syncs with the local server. This means if you loaded the app in a browser, it will auto-refresh as you code along. Feel free to use whatever bundler best meets your needs. Parcel was only added as a sample and for those looking for a simple but effective solution to the hassle of bundlers. 
 
 ## Authors
 
-***BuildForSDG/team-241***
+**Buildforsdg Team-241**
 
-List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
+     #### Mentor	
+-Lewis Tanguhwar	
+Github: https://github.com/lewikeezy
+
+    ####Technical Team Lead	
+- Nkwuda Sunday Cletus 	
+Github: https://github.com/sunny775	
+Twitter: https://twitter.com/scetus40	
+Linkedin: https://www.linkedin.com/sunday-nkwuds-04aa57a7/
+
+   ####Team members and roles played
+	
+-Emouhwo Warri - Frontend Developement		
+Github:  https://github.com/Emuohwo	
+Facebook:  https://www.facebook.com/warriisaac.emuohwo	
+Twitter: https://mobile.twitter.com/wise_shore
+Linkedin:  https://www.linkedin.com/mwlite/in/isaac-warri-8b2181131	
+
+-Joseph Shalom - Documentation	
+Github: https://github.com/shalom60	
+Twitter: https://mobile.twitter.com/J_bowlu	
+Linkedin: https://www.linkedin.com/in/shalom-joseph-90b844199		
 
 ## Contributing
-
 If this project sounds interesting to you and you'd like to contribute, thank you!
-First, you can send a mail to buildforsdg@andela(dot)com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
-
+First, you can send a mail to buildforsdg@andela.com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
 1.  area one (e.g this app is about human trafficking and you need feedback on your roadmap and feature list from the private sector / NGOs)
 2.  area two (e.g you want people to opt-in and try using your staging app at staging.project-name.com and report any bugs via a form)
 3.  area three (e.g here is the zoom link to our end-of sprint webinar, join and provide feedback as a stakeholder if you can)
 
 ## Acknowledgements
 
-Did you use someone else’s code?
-Do you want to thank someone explicitly?
-Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem?
+-Facebook Developer Circles & Andela Team Members	
+-#BuildforSDG Challenge Program	
+-Joy Ejiofor - Coordinator	
+-Sam Esidem- Senior Software Enginner
 
-It's powerful to always give credit.
+**Thanks for the opportunity and support all the way.**
+
 
 ## LICENSE
-
 MIT
+
