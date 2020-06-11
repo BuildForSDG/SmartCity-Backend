@@ -88,27 +88,47 @@ To achieve that, corresponding route paths have been build to serve the followin
 
 ## Authors
 
-***BuildForSDG/team-241***
+**Buildforsdg Team-241**
 
-List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
+ ### Mentor	
+Lewis Tanguhwar  
+Github: <https://github.com/lewikeez>
+
+ ### Technical Team Lead
+Nkwuda Sunday Cletus  
+Github: <https://github.com/sunny775>	  
+Twitter: <https://twitter.com/scetus40>	  
+Linkedin: <https://www.linkedin.com/sunday-nkwuds-04aa57a7/>
+
+  ### Team members and roles played
+	
+Emouhwo Warri - Frontend Developement  
+Github:  <https://github.com/Emuohwo>	  
+Facebook:  <https://www.facebook.com/warriisaac.emuohwo> 
+Twitter: <https://mobile.twitter.com/wise_shore>  
+Linkedin:  <https://www.linkedin.com/mwlite/in/isaac-warri-8b2181131>
+
+Joseph Shalom - Documentation  
+Github: <https://github.com/shalom60>  
+Twitter: <https://mobile.twitter.com/J_bowlu>
+Linkedin: <https://www.linkedin.com/in/shalom-joseph-90b844199>	
 
 ## Contributing
-
 If this project sounds interesting to you and you'd like to contribute, thank you!
-First, you can send a mail to buildforsdg@andela(dot)com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
-
+First, you can send a mail to buildforsdg@andela.com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
 1.  area one (e.g this app is about human trafficking and you need feedback on your roadmap and feature list from the private sector / NGOs)
 2.  area two (e.g you want people to opt-in and try using your staging app at staging.project-name.com and report any bugs via a form)
 3.  area three (e.g here is the zoom link to our end-of sprint webinar, join and provide feedback as a stakeholder if you can)
 
 ## Acknowledgements
 
-Did you use someone else’s code?
-Do you want to thank someone explicitly?
-Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem?
+Facebook Developer Circles & Andela Team Members	  
+#BuildforSDG Challenge Program	  
+Joy Ejiofor - Coordinator  
+Sam Esidem- Senior Software Enginner
 
-It's powerful to always give credit.
+**Thank You! for the opportunity and support all the way.**
+
 
 ## LICENSE
-
 MIT
