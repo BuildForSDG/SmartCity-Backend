@@ -94,7 +94,7 @@ To achieve that, corresponding route paths have been build to serve the followin
 Nkwuda Sunday Cletus  
 Github: <https://github.com/sunny775>	  
 Twitter: <https://twitter.com/scletus40>	  
-Linkedin: <https://www.linkedin.com/sunday-nkwuds-04aa57a7/>
+Linkedin: <https://www.linkedin.com/in/sunday-nkwuda-04aa57a7/>
 
   ### Team members and roles played
 	
