@@ -90,15 +90,11 @@ To achieve that, corresponding route paths have been build to serve the followin
 
 **Buildforsdg Team-241**
 
- ### Mentor	
-Lewis Tanguhwar  
-Github: <https://github.com/lewikeez>
-
  ### Technical Team Lead
 Nkwuda Sunday Cletus  
 Github: <https://github.com/sunny775>	  
-Twitter: <https://twitter.com/scetus40>	  
-Linkedin: <https://www.linkedin.com/sunday-nkwuds-04aa57a7/>
+Twitter: <https://twitter.com/scletus40>	  
+Linkedin: <https://www.linkedin.com/in/sunday-nkwuda-04aa57a7/>
 
   ### Team members and roles played
 	
